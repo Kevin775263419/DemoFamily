@@ -178,6 +178,8 @@
     self.storage = [[YYKVStorage alloc] initWithPath:path type:YYKVStorageTypeSQLite];
     [self.storage saveItemWithKey:@"data1" value:data];
     
+    //我不是一个人啊 大兄弟给他们之间的u关系
+    
     
     
 }
