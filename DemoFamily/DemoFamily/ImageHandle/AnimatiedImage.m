@@ -8,7 +8,6 @@
 
 #import "AnimatiedImage.h"
 #import "YYImageExampleHelper.h"
-#import "YYKit.h"
 
 
 @interface AnimatiedImage ()<UIGestureRecognizerDelegate>
@@ -34,9 +33,11 @@
     label.textAlignment = NSTextAlignmentCenter;
     [self.scrollView addSubview:label];
     [self addImageWithName:@"timg" andText:@"Animated GIF"];
-
-    
+    [self addFrameImageView];
+    [self addSpritSheetImageView:@"Sprite SheetImage"];
 }
+
+
 
 - (void )addImageWithName:(NSString *)name andText:(NSString *)text {
     YYImage *image = [YYImage imageNamed:name];
@@ -44,6 +45,9 @@
 }
 - (void)addImage:(UIImage *)image size:(CGSize)size text:(NSString *)text {
     YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] initWithImage:image];
+    if (size.width >0) {
+        imageView.size = size;
+    }
     imageView.centerX = self.view.width / 2;
     imageView.top = [(UIView *)[_scrollView.subviews lastObject] bottom] + 30;
     [self.scrollView addSubview:imageView];
@@ -63,6 +67,38 @@
     
     _scrollView.contentSize = CGSizeMake(self.view.width, imageLabel.bottom + 20);
 }
+
+- (void )addFrameImageView {
+    NSMutableArray  *dataArray = @[].mutableCopy;
+    for (int i =0; i<6; i++) {
+        NSString *key = [NSString stringWithFormat:@"00%d",i+1];
+        UIImage *image = [UIImage imageNamed:key];
+        NSData *imageData = UIImageJPEGRepresentation(image,1.0f);
+        [dataArray addObject:imageData];
+    }
+    YYFrameImage *image = [[YYFrameImage alloc] initWithImageDataArray:dataArray oneFrameDuration:0.1 loopCount:0];
+    [self addImage:image size:CGSizeMake(30, 30) text:@"Frame Animation"];
+}
+
+- (void )addSpritSheetImageView:(NSString *)text {
+    UIImage *sheet = [UIImage imageNamed:@"fav02l-sheet"];
+    NSMutableArray *contentRects = @[].mutableCopy;
+    NSMutableArray *durations = @[].mutableCopy;
+    CGSize size = CGSizeMake(sheet.size.width/8, sheet.size.height/12);
+    for (int j = 0; j < 12; j++) {
+        for (int i = 0; i < 8; i++) {
+            CGRect rect;
+            rect.size = size;
+            rect.origin.x = sheet.size.width / 8 * i;
+            rect.origin.y = sheet.size.height / 12 * j;
+            [contentRects addObject:[NSValue valueWithCGRect:rect]];
+            [durations addObject:@(1 / 60.0)];
+        }
+    }
+    YYSpriteSheetImage *sprite = [[YYSpriteSheetImage alloc] initWithSpriteSheetImage:sheet contentRects:contentRects frameDurations:durations loopCount:0];
+    [self addImage:sprite size:size text:text];
+}
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     return YES;
 }

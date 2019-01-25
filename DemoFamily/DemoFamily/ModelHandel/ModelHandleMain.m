@@ -7,7 +7,6 @@
 //
 
 #import "ModelHandleMain.h"
-#import "YYKit.h"
 #import "Users.h"
 #import "Album.h"
 #import "Message.h"
@@ -87,6 +86,17 @@
     NSString *bookStr = @"{\"pages\":122,\"name\":\"Harry Potter\",\"publishDate\":\"2010-01-01T08:00:00+0800\"}";
     Books *book = [Books modelWithJSON:bookStr];
     NSString *jsonString = [book modelToJSONString];
+    NSString *name = NSStringFromClass([Books class]);
+    id obj = nil;
+    Class class = NSClassFromString(@"Books");
+    @try {
+        obj = [class modelWithJSON:bookStr];
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+    if (obj) NSLog(@"他究竟是什么类名%@",[obj class]);
+    
+    
     NSLog(@"book页码:%ld\nbook JSON:%@",(long)book.pages,jsonString);
     self.logText = [self.logText stringByAppendingString:[NSString stringWithFormat:@"普通转化model：\n%@\n\n\n",jsonString]];
 }

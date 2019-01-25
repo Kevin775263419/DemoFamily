@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    self.dataArray = @[@"Model",@"AnimatiedImage",@"Tag"].mutableCopy;
-    self.titleArray = @[@"ModelHandleMain",@"AnimatiedImage",@"Tag"].mutableCopy;
+    self.dataArray = @[@"Model",@"AnimatiedImage",@"WebImageLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThreadOrCache"].mutableCopy;
+    self.titleArray = @[@"ModelHandleMain",@"AnimatiedImage",@"WebImageViewLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThread"].mutableCopy;
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -44,16 +44,13 @@
 }
 - (void )tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row ==0 || indexPath.row ==1) {
-        NSString *className = self.titleArray[indexPath.row];
-        Class class = NSClassFromString(className);
-        if (class) {
-            UIViewController *vc = class.new;
-            vc.title = self.dataArray[indexPath.row];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+    NSString *className = self.titleArray[indexPath.row];
+    Class class = NSClassFromString(className);
+    if (class) {
+        UIViewController *vc = class.new;
+        vc.title = self.dataArray[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 
 
