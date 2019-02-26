@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WebImageViewLoad : UIViewController
+@interface WebImageViewLoad : BaseViewController
 
 @end
 

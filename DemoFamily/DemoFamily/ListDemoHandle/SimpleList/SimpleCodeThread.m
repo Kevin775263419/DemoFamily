@@ -14,9 +14,10 @@
 
 
 
-@interface SimpleCodeThread ()
+@interface SimpleCodeThread ()<CALayerDelegate>
 @property (nonatomic, strong) Tag *recTag;
 @property (nonatomic, strong) YYKVStorage *storage;
+@property (nonatomic, strong) CALayer *layer;
 @end
 
 @implementation SimpleCodeThread
@@ -33,7 +34,7 @@
     label.text = @"请查看SimpleCodeThread类的源码";
     label.textColor = [UIColor lightGrayColor];
     
-    [self addALayer];
+//    [self addALayer];
     [self.view addSubview:label];
     self.recTag = [Tag new];
     self.recTag.tag1 = @"1234";
@@ -164,10 +165,10 @@
     
     //
     //KVO release after use
-    [self.recTag addObserverBlockForKeyPath:@"dict" block:^(id  _Nonnull obj, id  _Nullable oldVal, id  _Nullable newVal) {
-        NSLog(@"newVale----%@,oldValue----%@",newVal,oldVal);
-    }];
-    
+//    [self.recTag addObserverBlockForKeyPath:@"dict" block:^(id  _Nonnull obj, id  _Nullable oldVal, id  _Nullable newVal) {
+//        NSLog(@"newVale----%@,oldValue----%@",newVal,oldVal);
+//    }];
+//    
     
     //KVStorage  cache
     Tag *preTag = [Tag new];
@@ -189,11 +190,11 @@
     UILabel *labl = [self.view viewWithTag:100];
     UITouch *p = touches.anyObject;
     CGPoint point =  [p locationInView:labl];
+    
     if (CGRectContainsPoint(labl.bounds, point)) {
         NSLog(@"我点击了这个label");
         self.recTag.tag1 = @"tag1";
         self.recTag.dict = @{@"key":@"2"}.mutableCopy;
-        
         NSData *getData =  [self.storage getItemValueForKey:@"data1"];
         Tag *getTag = [Tag modelWithJSON:getData];
         NSString *jsonString = [getTag modelToJSONString];
@@ -204,19 +205,27 @@
 }
 
 - (void)addALayer {
-    CALayer *layer = [CALayer new];
-    layer.top = self.view.top + 200;
-    layer.width = 50;
-    layer.centerX = self.view.centerX;
-    layer.height = 30;
-    UIImage *image = [UIImage imageNamed:@"Snowman.png"];
-    layer.contents = (__bridge id)image.CGImage;
-    [self.view.layer addSublayer:layer];
+    UIView *backView = [UIView new];
+    backView.backgroundColor = [UIColor lightGrayColor];
+    backView.top = self.view.top +200;
+    backView.width = 250;
+    backView.height = 250;
+    backView.centerX = self.view.centerX;
+    [self.view addSubview:backView];
+    UIImage *image = [UIImage imageNamed:@"mew_baseline.png"];
+    backView.layer.contents = (__bridge id)image.CGImage;
+    backView.contentMode = UIViewContentModeScaleAspectFill;
+//    backView.layer.masksToBounds = YES;
     
+    self.layer = [CALayer new];
+    self.layer.frame = CGRectMake(0, 0, 100, 100);
+    self.layer.backgroundColor = [UIColor blueColor].CGColor;
+    [backView.layer addSublayer:self.layer];
+    self.layer.contentsScale = [UIScreen mainScreen].scale;
+    self.layer.delegate  = self;
+    [self.layer display];
+    [self.layer display];
 
-
-    
-    
     
     /**
      layer给view提供了基础设施，使得绘制内容和呈现更高效动画更容易、更低耗
@@ -234,8 +243,18 @@
  receiving change notifications, and release these blocks.
  */
 - (void)dealloc {
+//    [self removeObserverBlocksForKeyPath:@"dict"];
     [self removeObserverBlocks];
+
+//    self.layer.delegate = nil;
 }
+//- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
+//{
+//    //draw a thick red circle
+//    CGContextSetLineWidth(ctx, 10.0f);
+//    CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
+//    CGContextStrokeEllipseInRect(ctx, layer.bounds);
+//}
 
 /*
 #pragma mark - Navigation

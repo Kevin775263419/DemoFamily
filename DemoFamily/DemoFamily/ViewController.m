@@ -19,12 +19,15 @@
 @end
 
 @implementation ViewController
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.navigationController.navigationBar.hidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    self.dataArray = @[@"Model",@"AnimatiedImage",@"WebImageLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThreadOrCache"].mutableCopy;
-    self.titleArray = @[@"ModelHandleMain",@"AnimatiedImage",@"WebImageViewLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThread"].mutableCopy;
+    self.dataArray = @[@"HomePageViewController",@"Model",@"AnimatiedImage",@"WebImageLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThreadOrCache",@"CoreAutoScale",@"HomePageViewController"].mutableCopy;
+    self.titleArray = @[@"HomePageViewController",@"ModelHandleMain",@"AnimatiedImage",@"WebImageViewLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThread",@"CoreAutoScale",@"HomePageViewController"].mutableCopy;
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
