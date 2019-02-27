@@ -115,6 +115,7 @@
 		0A988B9D21E6E44100C58BF0 /* mew_interlaced.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0A988B9721E6E44000C58BF0 /* mew_interlaced.gif */; };
 		0A988BA121E6F05C00C58BF0 /* AttributeTextExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A988BA021E6F05C00C58BF0 /* AttributeTextExample.m */; };
 		0A988BA421E71D8500C58BF0 /* AttributeTagTextExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A988BA321E71D8500C58BF0 /* AttributeTagTextExample.m */; };
+		0ACC2AC322262FCD00CB4DF1 /* CycleAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC2AC222262FCD00CB4DF1 /* CycleAlbum.m */; };
 		0ACE516C21ED6D9200F775A2 /* WBStatusLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE516B21ED6D9200F775A2 /* WBStatusLayout.m */; };
 		0ACE516F21ED6E8A00F775A2 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE516E21ED6E8A00F775A2 /* WBStatusHelper.m */; };
 		0ACE518421EDB01300F775A2 /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE518321EDB01300F775A2 /* WBStatusCell.m */; };
@@ -336,6 +337,8 @@
 		0A988BA021E6F05C00C58BF0 /* AttributeTextExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttributeTextExample.m; sourceTree = "<group>"; };
 		0A988BA221E71D8500C58BF0 /* AttributeTagTextExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttributeTagTextExample.h; sourceTree = "<group>"; };
 		0A988BA321E71D8500C58BF0 /* AttributeTagTextExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttributeTagTextExample.m; sourceTree = "<group>"; };
+		0ACC2AC122262FCD00CB4DF1 /* CycleAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleAlbum.h; sourceTree = "<group>"; };
+		0ACC2AC222262FCD00CB4DF1 /* CycleAlbum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleAlbum.m; sourceTree = "<group>"; };
 		0ACE516A21ED6D9200F775A2 /* WBStatusLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBStatusLayout.h; sourceTree = "<group>"; };
 		0ACE516B21ED6D9200F775A2 /* WBStatusLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBStatusLayout.m; sourceTree = "<group>"; };
 		0ACE516D21ED6E8A00F775A2 /* WBStatusHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
@@ -511,6 +514,7 @@
 		0A2954C521E33409005C710B /* DemoFamily */ = {
 			isa = PBXGroup;
 			children = (
+				0ACC2AC022262F6900CB4DF1 /* AnimationHandle */,
 				0A2FD9B5221CF12700CBE721 /* DouYinResources */,
 				0A988B6B21E5884200C58BF0 /* EmoticonQQ.bundle */,
 				0A988B6C21E5884200C58BF0 /* EmoticonWeibo.bundle */,
@@ -794,6 +798,15 @@
 			path = TextHandle;
 			sourceTree = "<group>";
 		};
+		0ACC2AC022262F6900CB4DF1 /* AnimationHandle */ = {
+			isa = PBXGroup;
+			children = (
+				0ACC2AC122262FCD00CB4DF1 /* CycleAlbum.h */,
+				0ACC2AC222262FCD00CB4DF1 /* CycleAlbum.m */,
+			);
+			path = AnimationHandle;
+			sourceTree = "<group>";
+		};
 		D712477CBD0D5347BAA879D4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1066,6 +1079,7 @@
 				0A004B8D21E879670039F1FC /* StatusTimeLineViewController.m in Sources */,
 				0A5C92F9220284B8003B0C05 /* NSObject+KVOExtent.m in Sources */,
 				0A03F22821E48362009E7EF6 /* AnimatiedImage.m in Sources */,
+				0ACC2AC322262FCD00CB4DF1 /* CycleAlbum.m in Sources */,
 				0A2FD9D8221D2CE200CBE721 /* UIImage+Extension.m in Sources */,
 				0A30069921FEDBDC00279B7F /* CoreAutoScale.m in Sources */,
 				0A2FD9CC221D044B00CBE721 /* AwemeListResponse.m in Sources */,

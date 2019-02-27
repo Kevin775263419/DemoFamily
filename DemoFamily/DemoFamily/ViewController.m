@@ -26,8 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    self.dataArray = @[@"HomePageViewController",@"Model",@"AnimatiedImage",@"WebImageLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThreadOrCache",@"CoreAutoScale",@"HomePageViewController"].mutableCopy;
-    self.titleArray = @[@"HomePageViewController",@"ModelHandleMain",@"AnimatiedImage",@"WebImageViewLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThread",@"CoreAutoScale",@"HomePageViewController"].mutableCopy;
+    self.dataArray = @[@"HomePageViewController",@"Model",@"AnimatiedImage",@"WebImageLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThreadOrCache",@"CoreAutoScale",@"HomePageViewController",@"CycleAlbum"].mutableCopy;
+    self.titleArray = @[@"HomePageViewController",@"ModelHandleMain",@"AnimatiedImage",@"WebImageViewLoad",@"ProgressiveImage",@"AttributeTextExample",@"AttributeTagTextExample",@"AttributeAttachmentExample",@"AttributeBindingExample",@"AttributeAsyncShowExample",@"SimpleListTableView",@"StatusTimeLineViewController",@"SimpleDemoTotal",@"SimpleCodeThread",@"CoreAutoScale",@"HomePageViewController",@"CycleAlbum"].mutableCopy;
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
