@@ -1,4 +1,4 @@
-#### 详情请前去Wiki查看
+#### 详情请前去Wiki查看 https://github.com/Kevin775263419/DemoFamily/wiki
 
 #### 如何快速创建model模型
 
