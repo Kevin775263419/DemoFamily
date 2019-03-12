@@ -21,3 +21,11 @@
 #### 越狱环境搭建 一
 
 #### 越狱环境搭建 二
+
+# Object-C语言特性
+
+## ObjectC的语法和本质
+
+### Objective-C的本质
+
+### Objective-C对象的本质
